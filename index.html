@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app>
+
+  <head>
+    <script src="../lib/angular.js"></script>
+    <link rel="stylesheet" href="css/index.scss" type="text/x-scss"/>
+    <script src="app.js"></script>
+  </head>
+  <body ng-init="title='Angular'; items=[0,1,2,3]">Search item :         <input type="text" ng-model="search" />
+      <div ng-view></div>
+      <div ng-repeat="item in items | filter:search" ng-hide="hide">
+        {{item}}
+      </div>
+      <h1></h1>
+      <button ng-click="hide=!hide">Toggle Hide/show</button>
+      <button ng-click="items.push(items.length)">Add new item</button>
+      <button ng-click="items.pop(items.length)">Delete</button>
+
+
+      <section  class="sectionForm">
+          <form ng-submit="submit()" ng-controller='FormCtrl'>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" ng-model="name"/>
+            </div>
+            <div class="form-group">
+              <label>Age</label>
+              <select ng-model="age" ng-options="age for age in generateAges()"/>
+            </div>
+          <input type="submit"/>
+          </form>
+      </section>
+    </body>
+
+</html>

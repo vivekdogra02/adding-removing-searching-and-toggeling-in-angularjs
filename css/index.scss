@@ -1,0 +1,10 @@
+@mixin box-sizing($x){
+  -webkit-box-sizing : $x;
+  -moz-box-sizing :$x;
+  box-sizing: $x;
+}
+
+.sectionForm{
+  @@include box-sizing(4px);
+  background-color: green;
+}
